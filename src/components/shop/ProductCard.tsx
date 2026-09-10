@@ -35,26 +35,26 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
         </Link>
 
         {/* Badges */}
-        <div className="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+        <div className="absolute top-2 left-2 sm:top-2.5 sm:left-2.5 flex flex-col gap-1 z-10">
           {product.isBestSeller && (
-            <span className="bg-[#171510] text-[#D4AF37] text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full border border-[#D4AF37]/50 shadow-sm flex items-center gap-1">
+            <span className="bg-[#171510] text-[#D4AF37] text-[9px] sm:text-[10px] uppercase font-bold tracking-wider px-1.5 sm:px-2 py-0.5 rounded-full border border-[#D4AF37]/50 shadow-sm flex items-center gap-0.5 sm:gap-1">
               <Sparkles className="w-2.5 h-2.5" /> Best Seller
             </span>
           )}
           {product.isNewArrival && (
-            <span className="bg-[#D4AF37] text-black text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full shadow-sm">
+            <span className="bg-[#D4AF37] text-black text-[9px] sm:text-[10px] uppercase font-bold tracking-wider px-1.5 sm:px-2 py-0.5 rounded-full shadow-sm">
               New Arrival
             </span>
           )}
           {product.discountPercentage && product.discountPercentage > 0 && (
-            <span className="bg-rose-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">
+            <span className="bg-rose-600 text-white text-[9px] sm:text-[10px] font-bold px-1.5 sm:px-2 py-0.5 rounded-full shadow-sm">
               {product.discountPercentage}% OFF
             </span>
           )}
         </div>
 
         {/* Action Buttons: Wishlist & Quick View */}
-        <div className="absolute top-2.5 right-2.5 flex flex-col gap-1.5 z-10">
+        <div className="absolute top-2 right-2 sm:top-2.5 sm:right-2.5 flex flex-col gap-1.5 z-10">
           {/* Wishlist Button */}
           <motion.button
             whileTap={{ scale: 0.85 }}
@@ -62,14 +62,14 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
               e.preventDefault();
               toggleWishlist(product);
             }}
-            className={`w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-md shadow-md transition-colors ${
+            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center backdrop-blur-md shadow-md transition-colors ${
               inWishlist
                 ? "bg-rose-500 text-white"
                 : "bg-white/85 text-neutral-700 hover:text-rose-600 hover:bg-white"
             }`}
             aria-label={inWishlist ? "Remove from wishlist" : "Add to wishlist"}
           >
-            <Heart className={`w-4 h-4 ${inWishlist ? "fill-white" : ""}`} />
+            <Heart className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${inWishlist ? "fill-white" : ""}`} />
           </motion.button>
 
           {/* Quick View Button */}
@@ -79,7 +79,7 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
                 e.preventDefault();
                 onQuickView(product);
               }}
-              className="w-8 h-8 rounded-full bg-white/85 backdrop-blur-md text-neutral-700 hover:text-[#D4AF37] hover:bg-white shadow-md flex items-center justify-center transition-colors opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 duration-300"
+              className="w-8 h-8 rounded-full bg-white/85 backdrop-blur-md text-neutral-700 hover:text-[#D4AF37] hover:bg-white shadow-md hidden sm:flex items-center justify-center transition-colors opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 duration-300"
               aria-label="Quick view"
             >
               <Eye className="w-4 h-4" />
@@ -103,11 +103,11 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
       </div>
 
       {/* Product Information */}
-      <div className="p-3.5 sm:p-4 flex-1 flex flex-col justify-between">
+      <div className="p-3 sm:p-4 flex-1 flex flex-col justify-between">
         <div>
           {/* Purity & Category Pill */}
-          <div className="flex items-center justify-between gap-1 text-[11px] mb-1">
-            <span className="text-amber-800 bg-amber-50 px-2 py-0.5 rounded font-medium border border-amber-200/60">
+          <div className="flex items-center justify-between gap-1 text-[10px] sm:text-[11px] mb-1">
+            <span className="text-amber-800 bg-amber-50 px-1.5 sm:px-2 py-0.5 rounded font-medium border border-amber-200/60">
               {product.purity}
             </span>
             <span className="text-neutral-400">{product.weight}</span>
@@ -122,39 +122,39 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
 
           {/* Short subtitle / description */}
           {product.subtitle && (
-            <p className="text-[11px] text-neutral-500 line-clamp-1 mt-0.5">
+            <p className="text-[10px] sm:text-[11px] text-neutral-500 line-clamp-1 mt-0.5">
               {product.subtitle}
             </p>
           )}
 
           {/* Rating */}
-          <div className="flex items-center gap-1 mt-1.5">
+          <div className="flex items-center gap-1 mt-1">
             <div className="flex items-center text-amber-500">
               <Star className="w-3 h-3 fill-amber-500" />
             </div>
-            <span className="text-[11px] font-semibold text-neutral-800">
+            <span className="text-[10px] sm:text-[11px] font-semibold text-neutral-800">
               {product.rating.toFixed(1)}
             </span>
-            <span className="text-[10px] text-neutral-400">
+            <span className="text-[9px] sm:text-[10px] text-neutral-400">
               ({product.reviewsCount})
             </span>
           </div>
         </div>
 
         {/* Price & Mobile Add to Bag */}
-        <div className="mt-3 pt-2 border-t border-neutral-100 flex items-center justify-between gap-2">
-          <div>
-            <div className="flex items-baseline gap-1.5">
-              <span className="font-bold text-sm sm:text-base text-neutral-900">
+        <div className="mt-2.5 pt-2 border-t border-neutral-100 flex items-center justify-between gap-1.5">
+          <div className="min-w-0">
+            <div className="flex items-baseline gap-1">
+              <span className="font-bold text-xs sm:text-base text-neutral-900 truncate">
                 {formatCurrency(product.price)}
               </span>
               {product.originalPrice && (
-                <span className="text-xs text-neutral-400 line-through">
+                <span className="text-[10px] sm:text-xs text-neutral-400 line-through truncate hidden sm:inline">
                   {formatCurrency(product.originalPrice)}
                 </span>
               )}
             </div>
-            <span className="text-[10px] text-emerald-700 font-medium block">
+            <span className="text-[9px] sm:text-[10px] text-emerald-700 font-medium block truncate">
               Free Insured Delivery
             </span>
           </div>
@@ -162,10 +162,10 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
           {/* Mobile direct add button */}
           <button
             onClick={() => addToCart(product, 1)}
-            className="sm:hidden p-2 rounded-xl bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition"
+            className="sm:hidden p-1.5 rounded-lg bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition shrink-0"
             aria-label="Add to bag"
           >
-            <ShoppingBag className="w-4 h-4" />
+            <ShoppingBag className="w-3.5 h-3.5" />
           </button>
         </div>
       </div>

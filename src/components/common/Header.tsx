@@ -59,12 +59,14 @@ export function Header() {
   return (
     <>
       {/* Top Announcement Bar */}
-      <div className="bg-gradient-to-r from-[#171510] via-[#2A2315] to-[#171510] text-[#E8D7B0] text-[11px] sm:text-xs py-2 px-4 border-b border-[#D4AF37]/30">
+      <div className="bg-gradient-to-r from-[#171510] via-[#2A2315] to-[#171510] text-[#E8D7B0] text-[10px] sm:text-xs py-1.5 sm:py-2 px-3 sm:px-4 border-b border-[#D4AF37]/30">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2 mx-auto md:mx-0">
-            <Sparkles className="w-3.5 h-3.5 text-[#D4AF37] animate-pulse" />
-            <span className="tracking-wide">
-              BIS Hallmarked 916 Gold & 100% Certified Natural Diamonds • Complimentary Insured Shipping
+          <div className="flex items-center justify-center gap-1.5 mx-auto md:mx-0 text-center w-full md:w-auto">
+            <Sparkles className="w-3 h-3 text-[#D4AF37] animate-pulse shrink-0" />
+            <span className="tracking-wide sm:tracking-wider font-medium">
+              <span className="hidden sm:inline">BIS Hallmarked 916 Gold & 100% Certified Natural Diamonds • </span>
+              <span className="sm:hidden">BIS 916 Gold & Certified Diamonds • </span>
+              Complimentary Insured Shipping
             </span>
           </div>
           <div className="hidden md:flex items-center gap-5 text-[11px]">

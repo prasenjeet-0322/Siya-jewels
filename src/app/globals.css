@@ -114,3 +114,20 @@ h1, h2, h3, .font-editorial {
   background-size: 200% 100%;
   animation: shimmer 2.5s infinite;
 }
+
+/* Mobile Safe Area & Dev Overlay Fixes */
+.pb-safe {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0.75rem));
+}
+
+@supports (padding: max(0px)) {
+  .safe-area-pb {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Ensure Next.js dev toast indicator doesn't block bottom navigation icons */
+nextjs-portal, [data-nextjs-toast-wrapper], [data-nextjs-dialog-overlay] {
+  margin-bottom: 64px !important;
+}
+

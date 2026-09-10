@@ -101,7 +101,7 @@ export function HeroSlider() {
   };
 
   return (
-    <div className="relative w-full h-[520px] sm:h-[600px] lg:h-[680px] bg-neutral-950 overflow-hidden select-none">
+    <div className="relative w-full h-[540px] sm:h-[620px] lg:h-[700px] bg-neutral-950 overflow-hidden select-none">
       {/* Horizontal Carousel Slides with AnimatePresence */}
       <AnimatePresence initial={false} custom={direction}>
         <motion.div
@@ -125,7 +125,7 @@ export function HeroSlider() {
               fill
               priority
               sizes="100vw"
-              className="object-cover object-center brightness-[0.52]"
+              className="object-cover object-center brightness-[0.48]"
             />
             {/* Subtle luxury gradients */}
             <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent pointer-events-none" />
@@ -133,46 +133,46 @@ export function HeroSlider() {
           </div>
 
           {/* Slide Text Content */}
-          <div className="absolute inset-0 z-10 max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex flex-col justify-center pointer-events-none">
+          <div className="absolute inset-0 z-10 max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex flex-col justify-center pointer-events-none pb-14 sm:pb-0">
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="max-w-2xl space-y-4 sm:space-y-6 pointer-events-auto"
+              className="max-w-2xl space-y-3 sm:space-y-6 pointer-events-auto"
             >
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-[#D4AF37]/50 text-[#D4AF37] text-xs font-semibold tracking-widest uppercase shadow-lg">
-                <Sparkles className="w-3.5 h-3.5 animate-spin" />
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-[#D4AF37]/50 text-[#D4AF37] text-[10px] sm:text-xs font-semibold tracking-widest uppercase shadow-lg">
+                <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 animate-spin" />
                 <span>{activeSlide.badge}</span>
               </div>
 
               {/* Tagline */}
-              <p className="text-xs sm:text-sm font-medium tracking-[0.25em] text-[#E8D7B0] uppercase">
+              <p className="text-[10px] sm:text-sm font-medium tracking-[0.2em] sm:tracking-[0.25em] text-[#E8D7B0] uppercase">
                 {activeSlide.tagline}
               </p>
 
               {/* Title */}
-              <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.15] tracking-tight">
+              <h1 className="font-serif text-2xl sm:text-4xl lg:text-6xl font-bold text-white leading-[1.15] tracking-tight">
                 {activeSlide.title}
               </h1>
 
               {/* Description */}
-              <p className="text-sm sm:text-base text-neutral-300 leading-relaxed max-w-xl">
+              <p className="text-xs sm:text-base text-neutral-300 leading-relaxed max-w-xl line-clamp-2 sm:line-clamp-none">
                 {activeSlide.description}
               </p>
 
               {/* CTA Buttons */}
-              <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
+              <div className="pt-2 grid grid-cols-2 gap-2 sm:flex sm:items-center sm:gap-4 w-full sm:w-auto">
                 <Link
                   href={activeSlide.primaryBtnLink}
-                  className="px-7 py-3.5 rounded-full bg-gradient-to-r from-[#D4AF37] via-[#C59B27] to-[#A88118] text-neutral-950 text-xs sm:text-sm font-bold tracking-wider uppercase hover:brightness-110 shadow-[0_4px_25px_rgba(212,175,55,0.4)] transition flex items-center gap-2 group"
+                  className="px-3 sm:px-7 py-3 sm:py-3.5 rounded-full bg-gradient-to-r from-[#D4AF37] via-[#C59B27] to-[#A88118] text-neutral-950 text-[11px] sm:text-sm font-bold tracking-wider uppercase hover:brightness-110 shadow-[0_4px_25px_rgba(212,175,55,0.4)] transition flex items-center justify-center gap-1.5 group text-center"
                 >
-                  <span>{activeSlide.primaryBtnText}</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <span className="truncate">{activeSlide.primaryBtnText}</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform shrink-0 hidden sm:inline-block" />
                 </Link>
                 <Link
                   href={activeSlide.secondaryBtnLink}
-                  className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/30 text-xs sm:text-sm font-medium tracking-wider uppercase backdrop-blur-md transition"
+                  className="px-3 sm:px-6 py-3 sm:py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/30 text-[11px] sm:text-sm font-semibold tracking-wider uppercase backdrop-blur-md transition text-center truncate flex items-center justify-center"
                 >
                   {activeSlide.secondaryBtnText}
                 </Link>
@@ -183,25 +183,25 @@ export function HeroSlider() {
       </AnimatePresence>
 
       {/* Slide Navigation Arrows */}
-      <div className="absolute right-6 bottom-8 z-20 flex items-center gap-2">
+      <div className="absolute right-4 bottom-4 sm:right-6 sm:bottom-8 z-20 flex items-center gap-1.5 sm:gap-2">
         <button
           onClick={() => paginate(-1)}
-          className="w-11 h-11 rounded-full bg-black/60 hover:bg-[#D4AF37] hover:text-black text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition shadow-lg"
+          className="w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-black/60 hover:bg-[#D4AF37] hover:text-black text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition shadow-lg"
           aria-label="Previous slide"
         >
-          <ChevronLeft className="w-6 h-6" />
+          <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6" />
         </button>
         <button
           onClick={() => paginate(1)}
-          className="w-11 h-11 rounded-full bg-black/60 hover:bg-[#D4AF37] hover:text-black text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition shadow-lg"
+          className="w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-black/60 hover:bg-[#D4AF37] hover:text-black text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition shadow-lg"
           aria-label="Next slide"
         >
-          <ChevronRight className="w-6 h-6" />
+          <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6" />
         </button>
       </div>
 
       {/* Slide Dots Indicator */}
-      <div className="absolute left-6 bottom-8 z-20 flex items-center gap-2">
+      <div className="absolute left-4 bottom-4 sm:left-6 sm:bottom-8 z-20 flex items-center gap-1.5 sm:gap-2">
         {SLIDES.map((_, idx) => (
           <button
             key={idx}
@@ -211,8 +211,8 @@ export function HeroSlider() {
                 setPage([page + diff, diff > 0 ? 1 : -1]);
               }
             }}
-            className={`h-2 rounded-full transition-all duration-500 ${
-              slideIndex === idx ? "w-10 bg-[#D4AF37] shadow-[0_0_12px_rgba(212,175,55,0.8)]" : "w-2 bg-white/40 hover:bg-white/70"
+            className={`h-1.5 sm:h-2 rounded-full transition-all duration-500 ${
+              slideIndex === idx ? "w-7 sm:w-10 bg-[#D4AF37] shadow-[0_0_12px_rgba(212,175,55,0.8)]" : "w-1.5 sm:w-2 bg-white/40 hover:bg-white/70"
             }`}
             aria-label={`Go to slide ${idx + 1}`}
           />
