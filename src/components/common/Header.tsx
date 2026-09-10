@@ -29,8 +29,6 @@ const NAV_LINKS = [
   { name: "All Jewellery", href: "/shop" },
   { name: "Rings", href: "/shop?category=Rings" },
   { name: "Necklaces", href: "/shop?category=Necklaces" },
-  { name: "Earrings", href: "/shop?category=Earrings" },
-  { name: "Bangles", href: "/shop?category=Bangles" },
   { name: "Solitaires", href: "/shop?category=Solitaires" },
   { name: "Bridal", href: "/shop?category=Bridal" },
   { name: "About Us", href: "/about" },
@@ -122,14 +120,14 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8 text-xs font-medium uppercase tracking-wider text-neutral-700">
-            {NAV_LINKS.slice(0, 8).map((link) => {
+          <nav className="hidden lg:flex items-center space-x-5 xl:space-x-7 text-xs font-medium uppercase tracking-wider text-neutral-700">
+            {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`relative py-1 transition-colors hover:text-amber-700 ${
+                  className={`relative py-1 transition-colors hover:text-amber-700 whitespace-nowrap ${
                     isActive ? "text-amber-700 font-semibold" : ""
                   }`}
                 >
