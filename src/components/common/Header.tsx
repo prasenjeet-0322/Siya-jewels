@@ -89,22 +89,22 @@ export function Header() {
             : "border-b border-amber-100 py-3 sm:py-4"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 flex items-center justify-between gap-2 sm:gap-4">
           {/* Mobile Menu Button */}
           <div className="flex items-center lg:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 -ml-2 text-neutral-800 hover:text-amber-700 transition"
+              className="p-1.5 -ml-1 text-neutral-800 hover:text-amber-700 transition"
               aria-label="Toggle Menu"
             >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
             </button>
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="p-2 text-neutral-800 hover:text-amber-700 transition"
+              className="p-1.5 text-neutral-800 hover:text-amber-700 transition"
               aria-label="Search"
             >
-              <Search className="w-5 h-5" />
+              <Search className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
 

@@ -28,11 +28,23 @@
   --ivory-cream: #FCF9F4;
 }
 
+html {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-jakarta), system-ui, -apple-system, sans-serif;
+  width: 100%;
+  max-width: 100vw;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 h1, h2, h3, .font-editorial {
@@ -127,7 +139,16 @@ h1, h2, h3, .font-editorial {
 }
 
 /* Ensure Next.js dev toast indicator doesn't block bottom navigation icons */
-nextjs-portal, [data-nextjs-toast-wrapper], [data-nextjs-dialog-overlay] {
-  margin-bottom: 64px !important;
+nextjs-portal,
+[data-nextjs-toast-wrapper],
+[data-nextjs-dialog-overlay],
+[data-nextjs-route-announcer],
+div:has(> [data-nextjs-toast]),
+div:has(> button[data-nextjs-toast]) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  z-index: -9999 !important;
 }
 
